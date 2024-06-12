@@ -1,7 +1,4 @@
 
-
-
-
 //Function to refresh the Giscus comments.
 //Without this, comments will not load through navigations
 function reloadIframeScript() {
@@ -15,10 +12,10 @@ function reloadIframeScript() {
     script.type = 'module';
     script.src = 'https://esm.sh/giscus';
     script.setAttribute('id', 'comments');
-    script.setAttribute('repo', 'carson-bentley/quartz');
-    script.setAttribute('repoid', 'R_kgDOMHlTIg');
+    script.setAttribute('repo', 'KBR-DREAMM-Team/frontend-tool');
+    script.setAttribute('repoid', 'R_kgDOMIn6OA');
     script.setAttribute('category', 'Announcements');
-    script.setAttribute('categoryid', 'DIC_kwDOMHlTIs4Cf_pM');
+    script.setAttribute('categoryid', 'DIC_kwDOMIn6OM4CgDDI');
     script.setAttribute('mapping', 'pathname');
     script.setAttribute('term', 'Welcome to giscus!');
     script.setAttribute('reactionsenabled', '1');

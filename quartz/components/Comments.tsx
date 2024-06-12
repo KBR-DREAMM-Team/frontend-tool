@@ -21,10 +21,10 @@ export default (() => {
         <script type="module" src="https://esm.sh/giscus"></script>
         <giscus-widget 
             id="comments"
-            repo="carson-bentley/quartz"
-            repoid="R_kgDOMHlTIg"
+            repo="KBR-DREAMM-Team/frontend-tool"
+            repoid="R_kgDOMIn6OA"
             category="Announcements"
-            categoryid="DIC_kwDOMHlTIs4Cf_pM"
+            categoryid="DIC_kwDOMIn6OM4CgDDI"
             mapping="pathname"
             term="Welcome to giscus!"
             reactionsenabled="1"
@@ -39,6 +39,6 @@ export default (() => {
       )
     }
     Comments.afterDOMLoaded=script;
-    Comments.afterDOMLoaded=script2;
+    //Comments.afterDOMLoaded=script2;
     return Comments
   }) satisfies QuartzComponentConstructor
