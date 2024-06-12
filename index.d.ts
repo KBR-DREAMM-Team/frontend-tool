@@ -1,0 +1,20 @@
+
+declare namespace JSX {
+  interface IntrinsicElements {
+    'giscus-widget': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
+  }
+
+}
+
+declare module "*.scss" {
+  const content: string
+  export = content
+}
+
+// dom custom event
+interface CustomEventMap {
+  nav: CustomEvent<{ url: FullSlug }>
+  themechange: CustomEvent<{ theme: "light" | "dark" }>
+}
+
+declare const fetchData: Promise<ContentIndex>
