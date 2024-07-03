@@ -26,7 +26,6 @@ export function pageResources(
 ): StaticResources {
   const contentIndexPath = joinSegments(baseDir, "static/contentIndex.json")
   const contentIndexScript = `const fetchData = fetch("${contentIndexPath}").then(data => data.json())`
-
   return {
     css: [joinSegments(baseDir, "index.css"), ...staticResources.css],
     js: [
@@ -238,9 +237,13 @@ export function renderPage(
           <Footer {...componentData} />
         </div>
       </body>
+      
       {pageResources.js
-        .filter((resource) => resource.loadTime === "afterDOMReady")
-        .map((res) => JSResourceToScriptElement(res))}
+      //changing loadTime === "afterDOMReady" to loadTime === "beforeDOMReady" fixed comment update issue
+        .filter((resource) => resource.loadTime === "beforeDOMReady" )
+        .map((res) => JSResourceToScriptElement(res))
+        }
+        
     </html>
   )
 
