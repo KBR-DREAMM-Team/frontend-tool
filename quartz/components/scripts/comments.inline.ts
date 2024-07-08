@@ -1,79 +1,37 @@
 
-/* import { getFullSlug } from "../../util/path";
+document.addEventListener("nav", () => {
+  reloadScript()
+})
 
-const script = document.createElement('script');
-script.src = "https://giscus-seven.vercel.app/client.js";
-script.setAttribute('data-repo', 'KBR-DREAMM-Team/frontend-tool');
-script.setAttribute('data-repo-id', 'R_kgDOMIn6OA');
-script.setAttribute('data-category', 'Announcements');
-script.setAttribute('data-category-id', 'DIC_kwDOMIn6OM4CgDDI');
-script.setAttribute('data-mapping', 'url');
-script.setAttribute('data-strict', '0');
-
-script.setAttribute('data-reactions-enabled', '1');
-script.setAttribute('data-emit-metadata', '1');
-script.setAttribute('data-input-position', 'top');
-script.setAttribute('data-theme', 'preferred_color_scheme');
-script.setAttribute('data-lang', 'en');
-script.setAttribute('loading', 'lazy');
-script.setAttribute('crossorigin', 'anonymous');
-
-function reloadIframeScript(): Promise<void> {
-  
-
-  return new Promise((resolve, reject) => {
-    script.onload = () => {
-      resolve(); // Resolve the promise once script is loaded
-      const existingScript = document.querySelector(`script[src="${script.src}"]`);
-      if (existingScript) {
-        existingScript.remove();
-        console.log("removed")
-      }
-      document.head.appendChild(script);
-    };
-
-    script.onerror = (error) => {
-      reject(error); // Reject the promise if there's an error loading the script
-    };
-  });
-}
-
-let previousSlug = getFullSlug(window); // Initialize previous slug with the current value
-// Call reloadIframeScript every time user navigates
-window.addEventListener("nav", () => {
-
-  const currentSlug = getFullSlug(window);
-  console.log("nav")
-  
-  if (currentSlug !== previousSlug) {
-    console.log("Slug has changed. Reloading script...");
-    console.log(currentSlug)
-    console.log(previousSlug)
-    reloadIframeScript()
-    .then(() => {
-      console.log("Script loaded successfully");
-    })
-    
-    .catch((error) => {
-      console.error("Error loading script:", error);
-    });
-    previousSlug = currentSlug;
-    
+function reloadScript() {
+  let giscusContainer = document.getElementById("giscus-container");
+  if (giscusContainer) {
+    giscusContainer.innerHTML = "";
   }
-    
 
+  const scriptElement = document.createElement('script');
   
-  
-});
+  // Set attributes for the script
+  scriptElement.src = "https://giscus-seven.vercel.app/client.js";
+  scriptElement.setAttribute('data-repo', "KBR-DREAMM-Team/frontend-tool");
+  scriptElement.setAttribute('data-repo-id', "R_kgDOMIn6OA");
+  scriptElement.setAttribute('data-category', "Announcements");
+  scriptElement.setAttribute('data-category-id', "DIC_kwDOMIn6OM4CgDDI");
+  scriptElement.setAttribute('data-mapping', "url");
+  scriptElement.setAttribute('data-strict', "0");
+  scriptElement.setAttribute('data-reactions-enabled', "1");
+  scriptElement.setAttribute('data-emit-metadata', "0");
+  scriptElement.setAttribute('data-input-position', "bottom");
+  scriptElement.setAttribute('data-theme', "preferred_color_scheme");
+  scriptElement.setAttribute('data-lang', "en");
+  scriptElement.setAttribute('crossorigin', "anonymous");
 
-// Initial call to reloadIframeScript
-reloadIframeScript()
-  .then(() => {
-    console.log("Initial script loaded successfully");
-    document.head.appendChild(script);
-    
-  })
-  .catch((error) => {
-    console.error("Error loading initial script:", error);
-  });
- */
+  // Append the script element to the giscus-container
+
+  if (giscusContainer) {
+    giscusContainer.appendChild(scriptElement);
+  } else {
+    console.error("giscus-container not found. Script could not be appended.");
+  }
+
+}

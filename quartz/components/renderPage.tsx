@@ -239,8 +239,7 @@ export function renderPage(
       </body>
       
       {pageResources.js
-      //changing loadTime === "afterDOMReady" to loadTime === "beforeDOMReady" fixed comment update issue
-        .filter((resource) => resource.loadTime === "beforeDOMReady" )
+        .filter((resource) => (resource.loadTime === "afterDOMReady"))
         .map((res) => JSResourceToScriptElement(res))
         }
         
