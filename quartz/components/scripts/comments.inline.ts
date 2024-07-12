@@ -17,14 +17,15 @@ function reloadScript() {
   scriptElement.setAttribute('data-repo-id', "R_kgDOMIn6OA");
   scriptElement.setAttribute('data-category', "Announcements");
   scriptElement.setAttribute('data-category-id', "DIC_kwDOMIn6OM4CgDDI");
-  scriptElement.setAttribute('data-mapping', "url");
+  scriptElement.setAttribute('data-mapping', "pathname");
   scriptElement.setAttribute('data-strict', "0");
   scriptElement.setAttribute('data-reactions-enabled', "1");
   scriptElement.setAttribute('data-emit-metadata', "0");
   scriptElement.setAttribute('data-input-position', "bottom");
   scriptElement.setAttribute('data-theme', "preferred_color_scheme");
   scriptElement.setAttribute('data-lang', "en");
-  scriptElement.setAttribute('crossorigin', "anonymous");
+  scriptElement.setAttribute('crossorigin', "anonymous")
+  scriptElement.async = true;
 
   // Append the script element to the giscus-container
 

@@ -25,9 +25,11 @@ const parseDependencies = (argv: Argv, hast: Root, file: VFile): string[] => {
     let ref: string | null = null
 
     if (
-      ["script", "img", "audio", "video", "source", "iframe"].includes(elem.tagName) &&
+      ["img", "audio", "video", "source", "iframe"].includes(elem.tagName) &&
       elem?.properties?.src
+
     ) {
+      
       ref = elem.properties.src.toString()
     } else if (["a", "link"].includes(elem.tagName) && elem?.properties?.href) {
       // transclusions will create a tags with relative hrefs
@@ -105,7 +107,7 @@ export const ContentPage: QuartzEmitterPlugin<Partial<FullPageLayout>> = (userOp
           tree,
           allFiles,
         }
-
+        
         const content = renderPage(cfg, slug, componentData, opts, externalResources)
         const fp = await write({
           ctx,
