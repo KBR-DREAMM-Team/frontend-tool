@@ -3,13 +3,14 @@ document.addEventListener("nav", () => {
   reloadScript()
 })
 
-function reloadScript() {
+export function reloadScript() {
   let giscusContainer = document.getElementById("giscus-container");
   if (giscusContainer) {
     giscusContainer.innerHTML = "";
   }
 
   const scriptElement = document.createElement('script');
+  const colorScheme = localStorage.getItem('theme') === 'dark' ? 'cobalt' : 'light'
   
   // Set attributes for the script
   scriptElement.src = "https://giscus-seven.vercel.app/client.js";
@@ -22,7 +23,7 @@ function reloadScript() {
   scriptElement.setAttribute('data-reactions-enabled', "1");
   scriptElement.setAttribute('data-emit-metadata', "0");
   scriptElement.setAttribute('data-input-position', "bottom");
-  scriptElement.setAttribute('data-theme', "preferred_color_scheme");
+  scriptElement.setAttribute('data-theme', colorScheme);
   scriptElement.setAttribute('data-lang', "en");
   scriptElement.setAttribute('crossorigin', "anonymous")
   scriptElement.async = true;

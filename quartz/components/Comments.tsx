@@ -1,6 +1,7 @@
 
 // @ts-ignore
 import script from "./scripts/comments.inline"
+import style from "./styles/comments.scss"
 
 import { QuartzComponentProps, QuartzComponentConstructor } from "./types"
 import 'giscus';
@@ -18,5 +19,6 @@ export default (() => {
     }
     
     Comments.beforeDOMLoaded=script;
+    Comments.css = style;
     return Comments
   }) satisfies QuartzComponentConstructor
