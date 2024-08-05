@@ -2,11 +2,12 @@
 ## Local setup
 
 ### Adding to Existing Site
--Clone Repo onto local machine
+- Fork Repo onto local machine
 - Run 'npm i'
 - Add content to desired page, or create new .md file in the content folder in the root level of project directory
 - Run 'npx quartz build --create' to start development server, and view changes
 - Local server runs on `http://localhost:8080`
+- Sync fork with main branch, new content files will be rendered automatically
 - 
 ### Creating New Site
 - Clone repo, then `npm i` and `npx quartz create`
@@ -14,7 +15,7 @@
 - Run 'npx quartz build --create' to start development server, and view web app
 - Local server runs on `http://localhost:8080`
 
-### Supported Formats
+## Supported Formats
 - All standard MarkDown features are supported
 - GFM (GitHub Flavored MarkDown) is supported
   - `https://github.com/SuperKevinZhou/GithubFlavoredMarkdown` is a good starter guide for GFM
@@ -28,9 +29,10 @@
   - All HTML tags are supported, including iFrames, scripts, and styling.
 - Inserting images, videos, etc is done by placing the desired content in the content file, and `![](file_name.png)`
 - For a more in-depth description of what is and isn't allowed, reference [['https://quartz.jzhao.xyz/']]
+
+## Comment Configuration
+- Comments can be added to a created site by configuring the comments script in the scripts folder
+- `https://giscus-seven.vercel.app/` for more information about configuring the comments.
+- If creating new site, `kbr-giscus` GitHub app must be installed to the repo.
 - 
-## Comments
-- Giscus used for comments. 
-- These comments are stored in the GitHub Discussions tab, and uses GitHub Discussions API
-- To configure on a locally hosted site, check `giscus.app`
-> Note: When changing Giscus config settings, change in both Comments Component and comments script
+
